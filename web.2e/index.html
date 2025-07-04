@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denuncias Arquitectura España</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>🏗️ Denuncias Arquitectura España</h1>
+        <p>Plataforma anónima para denunciar malas condiciones laborales</p>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <h2>📝 Reportar experiencia laboral</h2>
+            <form id="denunciaForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <label for="despacho">Nombre del despacho *</label>
+                    <input type="text" id="despacho" name="despacho" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="ciudad">Ciudad *</label>
+                    <select id="ciudad" name="ciudad" required>
+                        <option value="">Selecciona ciudad</option>
+                        <option value="Madrid">Madrid</option>
+                        <option value="Barcelona">Barcelona</option>
+                        <option value="Valencia">Valencia</option>
+                        <option value="Sevilla">Sevilla</option>
+                        <option value="Bilbao">Bilbao</option>
+                        <option value="Otra">Otra</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="salario">Salario por hora (€)</label>
+                    <input type="number" id="salario" name="salario" min="0" max="50" step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label for="experiencia">Describe tu experiencia *</label>
+                    <textarea id="experiencia" name="experiencia" required rows="6"></textarea>
+                </div>
+
+                <button type="submit">Enviar Denuncia</button>
+            </form>
+        </section>
+
+        <section class="denuncias-section">
+            <h2>🔍 Denuncias verificadas</h2>
+            <div class="denuncia-card">
+                <h3>Estudio *** (Madrid)</h3>
+                <p><strong>Salario:</strong> €2.00/hora</p>
+                <p>"Me ofrecieron 2€/hora para prácticas de 40 horas semanales..."</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html> 
