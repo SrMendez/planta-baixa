@@ -1,61 +1,251 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ca">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Denuncias Arquitectura España</title>
+    <title>Planta Baixa</title>
+    <meta name="description" content="Transparència en condicions laborals d'arquitectura">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>🏗️ Denuncias Arquitectura España</h1>
-        <p>Plataforma anónima para denunciar malas condiciones laborales</p>
+        <div class="container">
+            <h1>Planta Baixa</h1>
+            <p>Transparència en condicions laborals d'arquitectura</p>
+        </div>
     </header>
 
-    <main>
+    <main class="container">
+        
+        <!-- Filtros -->
+        <section class="filters">
+            <input type="text" id="search" placeholder="Buscar despatx">
+            <select id="filter-salari">
+                <option value="">Salari</option>
+                <option value="0-3">0-3€/h</option>
+                <option value="3-6">3-6€/h</option>
+                <option value="6-10">6-10€/h</option>
+                <option value="10+">10€+/h</option>
+            </select>
+            <select id="filter-valoracio">
+                <option value="">Valoració</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </section>
+
+        <!-- Lista de Despachos -->
+        <section class="despachos">
+            
+            <article class="despacho" data-salari="2.5" data-valoracio="1">
+                <header class="despacho-header">
+                    <h2>Estudio Alpha Arquitectos</h2>
+                    <div class="meta">
+                        <span class="salari">2.50€/h</span>
+                        <span class="valoracio">1/5</span>
+                        <span class="comentaris">8 experiències</span>
+                        <span class="location">Barcelona</span>
+                    </div>
+                </header>
+                
+                <div class="preview">
+                    <p>"2€/hora per pràctiques de 40h setmanals. Ambient tòxic amb crits constants. Quan vaig preguntar sobre el conveni em van dir que les pràctiques no estan cobertes."</p>
+                </div>
+                
+                <button class="toggle" onclick="toggleComentaris(this)">
+                    Veure experiències
+                </button>
+                
+                <div class="comentaris" style="display: none;">
+                    <div class="comentari">
+                        <div class="comentari-meta">
+                            <span class="valoracio-num">1/5</span>
+                            <span class="salari-comentari">2.00€/h</span>
+                            <span class="data">Novembre 2024</span>
+                            <span class="tipus">Pràctiques</span>
+                        </div>
+                        <p>2€/hora per pràctiques de 40h setmanals. Quan vaig preguntar sobre el conveni em van dir que "les pràctiques no estan cobertes". A més esperaven que treballés caps de setmana sense compensació adicional.</p>
+                    </div>
+                    
+                    <div class="comentari">
+                        <div class="comentari-meta">
+                            <span class="valoracio-num">1/5</span>
+                            <span class="salari-comentari">3.00€/h</span>
+                            <span class="data">Octubre 2024</span>
+                            <span class="tipus">Període de proves</span>
+                        </div>
+                        <p>Ambient molt tòxic. El cap cridava constantment i feia comentaris despectius. Les hores extres no es pagaven mai. Demanen coneixements avançats de software per aquest preu ridícul.</p>
+                    </div>
+                    
+                    <div class="comentari">
+                        <div class="comentari-meta">
+                            <span class="valoracio-num">2/5</span>
+                            <span class="salari-comentari">2.50€/h</span>
+                            <span class="data">Setembre 2024</span>
+                            <span class="tipus">Pràctiques</span>
+                        </div>
+                        <p>Només van pagar 2.50€/hora durant el període de proves. Demanen coneixements avançats de Revit i renders per aquest preu. L'organització és caòtica i no hi ha formació.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="despacho" data-salari="5.5" data-valoracio="2">
+                <header class="despacho-header">
+                    <h2>Estudio Beta Design</h2>
+                    <div class="meta">
+                        <span class="salari">5.50€/h</span>
+                        <span class="valoracio">2/5</span>
+                        <span class="comentaris">5 experiències</span>
+                        <span class="location">Madrid</span>
+                    </div>
+                </header>
+                
+                <div class="preview">
+                    <p>"5€/hora però demanen moltes hores extres. Bon ambient però molt desorganitzats. La gestió és caòtica i no sempre paguen les extres."</p>
+                </div>
+                
+                <button class="toggle" onclick="toggleComentaris(this)">
+                    Veure experiències
+                </button>
+                
+                <div class="comentaris" style="display: none;">
+                    <div class="comentari">
+                        <div class="comentari-meta">
+                            <span class="valoracio-num">2/5</span>
+                            <span class="salari-comentari">5.00€/h</span>
+                            <span class="data">Novembre 2024</span>
+                            <span class="tipus">Període de proves</span>
+                        </div>
+                        <p>5€/hora per període de proves. Bon ambient però molt desorganitzats. Demanen moltes hores extres que no sempre es paguen. Hi ha potencial però la gestió és pèssima.</p>
+                    </div>
+                    
+                    <div class="comentari">
+                        <div class="comentari-meta">
+                            <span class="valoracio-num">3/5</span>
+                            <span class="salari-comentari">6.00€/h</span>
+                            <span class="data">Octubre 2024</span>
+                            <span class="tipus">Col·laboració</span>
+                        </div>
+                        <p>Millor que altres llocs però encara per sota del què hauria de ser. La gent és maca però la gestió és caòtica. Projectes interessants però mal organitzats.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="despacho" data-salari="8.5" data-valoracio="4">
+                <header class="despacho-header">
+                    <h2>Estudio Gamma Arquitectura</h2>
+                    <div class="meta">
+                        <span class="salari">8.50€/h</span>
+                        <span class="valoracio">4/5</span>
+                        <span class="comentaris">3 experiències</span>
+                        <span class="location">València</span>
+                    </div>
+                </header>
+                
+                <div class="preview">
+                    <p>"Finalment un despatx que respecta els treballadors. 8€/hora i bon ambient. Formació constant i possibilitats de créixer. Respecten els horaris."</p>
+                </div>
+                
+                <button class="toggle" onclick="toggleComentaris(this)">
+                    Veure experiències
+                </button>
+                
+                <div class="comentaris" style="display: none;">
+                    <div class="comentari">
+                        <div class="comentari-meta">
+                            <span class="valoracio-num">4/5</span>
+                            <span class="salari-comentari">8.00€/h</span>
+                            <span class="data">Novembre 2024</span>
+                            <span class="tipus">Pràctiques</span>
+                        </div>
+                        <p>Finalment un despatx que respecta els treballadors. 8€/hora per pràctiques, bon ambient i aprens molt. Respecten els horaris i hi ha possibilitats de créixer.</p>
+                    </div>
+                    
+                    <div class="comentari">
+                        <div class="comentari-meta">
+                            <span class="valoracio-num">5/5</span>
+                            <span class="salari-comentari">9.00€/h</span>
+                            <span class="data">Octubre 2024</span>
+                            <span class="tipus">Treball temporal</span>
+                        </div>
+                        <p>Excel·lent experiència. Bon salari, formació constant i possibilitats de créixer. L'equip és professional i els projectes interessants. Recomano 100%.</p>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- Formulario -->
         <section class="form-section">
-            <h2>📝 Reportar experiencia laboral</h2>
-            <form id="denunciaForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                <div class="form-group">
-                    <label for="despacho">Nombre del despacho *</label>
-                    <input type="text" id="despacho" name="despacho" required>
+            <h2>Comparteix la teva experiència</h2>
+            <p>Informació anònima per ajudar altres professionals</p>
+            
+            <form id="experienciaForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="despatx">Nom del despatx</label>
+                        <input type="text" id="despatx" name="despatx" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="salari">Salari (€/hora)</label>
+                        <input type="number" id="salari" name="salari" min="0" max="50" step="0.1" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="valoracio">Valoració</label>
+                        <select id="valoracio" name="valoracio" required>
+                            <option value="">Selecciona</option>
+                            <option value="1">1 - Molt dolent</option>
+                            <option value="2">2 - Dolent</option>
+                            <option value="3">3 - Acceptable</option>
+                            <option value="4">4 - Bon</option>
+                            <option value="5">5 - Excel·lent</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tipus">Tipus</label>
+                        <select id="tipus" name="tipus">
+                            <option value="">Selecciona</option>
+                            <option value="Pràctiques">Pràctiques</option>
+                            <option value="Període de proves">Període de proves</option>
+                            <option value="Treball temporal">Treball temporal</option>
+                            <option value="Col·laboració">Col·laboració</option>
+                            <option value="Entrevista">Entrevista</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="ciudad">Ciudad *</label>
-                    <select id="ciudad" name="ciudad" required>
-                        <option value="">Selecciona ciudad</option>
-                        <option value="Madrid">Madrid</option>
-                        <option value="Barcelona">Barcelona</option>
-                        <option value="Valencia">Valencia</option>
-                        <option value="Sevilla">Sevilla</option>
-                        <option value="Bilbao">Bilbao</option>
-                        <option value="Otra">Otra</option>
-                    </select>
+                    <label for="experiencia">Experiència</label>
+                    <textarea id="experiencia" name="experiencia" required rows="6" 
+                              placeholder="Descriu les condicions, l'ambient, organització, etc."></textarea>
                 </div>
 
-                <div class="form-group">
-                    <label for="salario">Salario por hora (€)</label>
-                    <input type="number" id="salario" name="salario" min="0" max="50" step="0.1">
-                </div>
-
-                <div class="form-group">
-                    <label for="experiencia">Describe tu experiencia *</label>
-                    <textarea id="experiencia" name="experiencia" required rows="6"></textarea>
-                </div>
-
-                <button type="submit">Enviar Denuncia</button>
+                <button type="submit">Enviar</button>
+                
             </form>
         </section>
 
-        <section class="denuncias-section">
-            <h2>🔍 Denuncias verificadas</h2>
-            <div class="denuncia-card">
-                <h3>Estudio *** (Madrid)</h3>
-                <p><strong>Salario:</strong> €2.00/hora</p>
-                <p>"Me ofrecieron 2€/hora para prácticas de 40 horas semanales..."</p>
-            </div>
-        </section>
     </main>
+
+    <footer>
+        <div class="container">
+            <p>Planta Baixa — Transparència laboral en arquitectura</p>
+            <p>Projecte independent sense ànim de lucre</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html> 
